@@ -223,6 +223,7 @@ body{
     background-size: auto;
     padding-top: 20px;
     padding-left: 100px;
+    overflow: auto;
 }
 
 .container .right section .box{

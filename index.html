@@ -54,7 +54,7 @@
                             <li 
                                 v-for="(element,index) in contacts"
                             >
-                                <img src="immagini/avatar_1.jpg" alt="">
+                                <img :src="choseImg(element.avatar)" alt="">
                                 <p>{{element.name}}</p>
                             </li>
                             

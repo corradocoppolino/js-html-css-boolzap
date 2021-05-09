@@ -92,6 +92,12 @@ const app = new Vue ({
 
     },
 
-    methods: {}
+    methods: {
+
+        choseImg(number){
+            return 'immagini/avatar' + number + '.jpg';
+        }
+
+    }
 
 })
