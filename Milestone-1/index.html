@@ -43,9 +43,11 @@
 
                 <div class="menu-chat">
 
-                    <div class="search">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <div class="left-searchbar">
+                        <label class="search-label" for="search">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </label>
+                        <input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat" name="search">
                     </div>
 
                     <div class="chat">
@@ -53,6 +55,7 @@
                         <ul>
                             <li 
                                 v-for="(element,index) in contacts"
+                                @click="numberUser = index"
                             >
                                 <img :src="'immagini/avatar' + element.avatar + '.jpg'" alt="">
                                 <p>{{element.name}}</p>
@@ -71,34 +74,35 @@
 
             <header>
 
-                <img src="immagini/avatar_1.jpg" alt="">
-                <p class="title">Michele</p>
-                <p class="subtitle">Ultimo accesso oggi alle</p>
+                <div
+                    v-for="(element,index) in contacts"
+                    v-if="numberUser === index"
+                >
+                    
+                    <img :src="'immagini/avatar' + element.avatar +'.jpg'" alt="">
+                    <p class="title">{{element.name}}</p>
+                    <p class="subtitle">Ultimo accesso oggi alle</p>
 
-                <div class="symbols">
-                    <i class="fas fa-search"></i>
-                    <i class="fas fa-paperclip"></i>
-                    <i class="fas fa-ellipsis-v"></i>
+                    <div class="symbols">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+
                 </div>
 
             </header>
 
             <section>
 
-                <div class="flex-container">
-                    <div class="box sent">
-                        <p>Hai portato a spasso il cane?</p>
-                        <p class="data">10/01/2020 15:30:55</p>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="box sent">
-                        <p>Ricordati di dargli da mangiare</p>
-                        <p class="data">10/01/2020 15:30:55</p>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="box recived">
-                        <p>Tutto fatto!</p>
-                        <p class="data">10/01/2020 15:30:55</p>
+                <div class="flex-container" v-for="(element,index) in contacts">
+                    <div 
+                        v-for="message in element.messages" 
+                        class="box"     
+                        :class="message.status"
+                        v-if="numberUser === index"    
+                    >
+                        <p>{{message.text}}</p>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
