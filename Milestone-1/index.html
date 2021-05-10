@@ -20,8 +20,8 @@
 
             <header>
 
-                <img src="immagini/avatar_io.jpg" alt="immagine personale">
-                <p>Nome Utente</p>
+                <img :src="'immagini/avatar' + user.avatar + '.jpg'" alt="immagine personale">
+                <p> {{user.name}} </p>
 
                 <div class="symbols">
                     <i class="fas fa-circle-notch"></i>
@@ -54,11 +54,9 @@
                             <li 
                                 v-for="(element,index) in contacts"
                             >
-                                <img :src="choseImg(element.avatar)" alt="">
+                                <img :src="'immagini/avatar' + element.avatar + '.jpg'" alt="">
                                 <p>{{element.name}}</p>
                             </li>
-                            
-                            
                         </ul>
 
                     </div>
@@ -91,14 +89,17 @@
                     <div class="box sent">
                         <p>Hai portato a spasso il cane?</p>
                         <p class="data">10/01/2020 15:30:55</p>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="box sent">
                         <p>Ricordati di dargli da mangiare</p>
                         <p class="data">10/01/2020 15:30:55</p>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="box recived">
                         <p>Tutto fatto!</p>
                         <p class="data">10/01/2020 15:30:55</p>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
 

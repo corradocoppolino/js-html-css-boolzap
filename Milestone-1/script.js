@@ -4,6 +4,11 @@ const app = new Vue ({
 
     data: {
 
+        user:{
+            name: 'Nome Utente',
+            avatar: '_io'
+        },
+
         contacts: [
             {
                 name: 'Michele',
@@ -94,10 +99,8 @@ const app = new Vue ({
 
     methods: {
 
-        choseImg(number){
-            return 'immagini/avatar' + number + '.jpg';
-        }
-
+        
+        
     }
 
 })
