@@ -8,6 +8,10 @@ const app = new Vue ({
 
         numberUser: 0,
 
+        now:dayjs().format('DD/MM/YYYY HH:mm:ss'),
+
+        ora:dayjs().format('HH:mm:ss'),
+
         user:{
             name: 'Nome Utente',
             avatar: '_io'
@@ -106,7 +110,7 @@ const app = new Vue ({
         addStr(){
 
             this.contacts[this.numberUser].messages.push({
-                date: '10/01/2020 16:15:22',
+                date: this.now,
                 text: this.strBoolz,
                 status: 'sent'
             })
@@ -115,7 +119,7 @@ const app = new Vue ({
 
             setTimeout(() => {
                 this.contacts[this.numberUser].messages.push({
-                    date: '10/01/2020 16:15:22',
+                    date: this.now,
                     text: 'ok',
                     status: 'received'
                 })
